@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+        <div class="container d-flex justify-content-center mt-5">
+            <div >
+                <h1>Claim Your Found Item</h1>
+                <p class="text-center">Provide necessary details to claim your lost item.</p>
+            </div>
+            
+        </div>
+    
+    <!-- Claim Item Section -->
+    <section class="container py-5">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-10 d-flex">
+                <div class="card claim-card p-3 flex-row w-100">
+                    <img src="{{ item.image.url }}" alt="{{ item.name }}" class="img-fluid" style="min-width: 35rem; height: auto; border-radius: 10px;">
+                    <div class="card-body text-center w-100">
+                        <h5 class="card-title">{{ item.name }}</h5>
+                        <p class="card-text">Found at: {{ item.detail }}</p>
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="fullName" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="fullName" name="fullName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="contact" class="form-label">Contact Number</label>
+                                <input type="tel" class="form-control" id="contact" name="contact" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="proof" class="form-label">Upload Proof (if any)</label>
+                                <input type="file" class="form-control" id="proof" name="proof">
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Submit Claim</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
