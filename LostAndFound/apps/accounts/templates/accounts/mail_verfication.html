@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Claim it Back</title>
+    <link rel="icon" type="image/png" href="{% static 'images/Logo.png' %}.png" />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="form-container">
+        <div class="form-box mailverification">
+          <div class="logo-box">
+            <img src="{% static 'images/Logo.png' %}" alt="logo" />
+          </div>
+          <div class="title-box">
+            <h3>Please verify your email</h3>
+            <div class="para">
+              <p>You are almost there ! We send an email to</p>
+              <p>xyz@gmail.com</p>
+              <p>Just click on the link to complete verification</p>
+              <p>If you don’t see it, you may need to check your spam.</p>
+            </div>
+          </div>
+          <div class="change-email-box">
+            <a href="#">Change email?</a>
+          </div>
+          <div class="loginBtn">
+            <button type="sumit" id="resendEmail">Resend Email</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

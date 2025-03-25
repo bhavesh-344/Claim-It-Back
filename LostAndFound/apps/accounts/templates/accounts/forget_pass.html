@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Claim it Back</title>
+    <link rel="icon" type="image/png" href="{% static 'images/Logo.png' %}.png" />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="form-container">
+        <div class="form-box forgot-password">
+          <div class="logo-box">
+            <img src="{% static 'images/Logo.png' %}" alt="logo" />
+          </div>
+          <div class="title-box">
+            <h3>Forgot Your Password?</h3>
+            <div class="para">
+              <p>Enter Enter your email so that we can send to password</p>
+              <p>reset link</p>
+            </div>
+          </div>
+          <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <input type="hidden" name="form_type" value="forget-password" />
+
+            <div class="email-box input-box">
+              <label for="email">Email</label>
+              <input type="email" placeholder="xyz@gmail.com" id="email" name="email" required />
+            </div>
+            <div class="loginBtn">
+              <button type="submit" id="to-mailverification">Send Email</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
